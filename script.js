@@ -149,6 +149,7 @@ const addToCart = (e) => {
         else{
             cartList.push(cartData);
         }
+        alert(`${name} has been added to the cart.`);
 
         showCartList(cartList);
     }
