@@ -36,7 +36,7 @@ const showAllPlants = (plants) => {
                         class="rounded-xl w-full h-50 object-cover" />
                 </figure>
                 <div class="card-body pb-4">
-                    <h2 class="card-title cursor-pointer" onclick="console.log('${plant.id}')">${plant.name}</h2>
+                    <h2 class="card-title cursor-pointer" onclick="loadPlantDetail('${plant.id}')">${plant.name}</h2>
                     <p>${plant.description}</p>
                     <div class="flex justify-between items-center">
                         <div class="rounded-full bg-[#dcfce7] text-[#15803d] py-1 px-3 font-semibold">${plant.category}</div>
@@ -78,7 +78,7 @@ const showPlantsByCategory = (plants, id) => {
                         class="rounded-xl w-full h-50 object-cover" />
                 </figure>
                 <div class="card-body pb-4">
-                    <h2 class="card-title cursor-pointer" onclick="console.log('${plant.id}')">${plant.name}</h2>
+                    <h2 class="card-title cursor-pointer" onclick="loadPlantDetail('${plant.id}')">${plant.name}</h2>
                     <p>${plant.description}</p>
                     <div class="flex justify-between items-center">
                         <div class="rounded-full bg-[#dcfce7] text-[#15803d] py-1 px-3 font-semibold">${plant.category}</div>
@@ -91,6 +91,13 @@ const showPlantsByCategory = (plants, id) => {
             </div>
         `;
     });
+}
+
+const loadPlantDetail = async(id) => {
+    const url = `https://openapi.programming-hero.com/api/plant/${id}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log(data.plants);
 }
 
 loadAllCategories();
