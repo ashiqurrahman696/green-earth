@@ -141,8 +141,14 @@ const addToCart = (e) => {
             plantPrice: Number(price),
             quantity: 1
         };
+        let existingPlant = cartList.find(cart => cart.plantName === cartData.plantName);
+        if(existingPlant){
+            existingPlant.quantity++;
+        }
+        else{
+            cartList.push(cartData);
+        }
 
-        cartList.push(cartData);
         console.log(cartList);
     }
 }
