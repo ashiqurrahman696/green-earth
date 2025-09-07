@@ -175,5 +175,11 @@ const showCartList = (cartList) => {
     totalPriceEl.innerText = totalPrice;
 }
 
+const removeCart = (plantName) => {
+    const filteredCart = cartList.filter(cart => cart.plantName !== plantName);
+    cartList = filteredCart;
+    showCartList(cartList);
+}
+
 loadAllCategories();
 loadAllPlants();
