@@ -50,5 +50,12 @@ const showAllPlants = (plants) => {
     });
 }
 
+const loadPlantsByCategory = async(id) => {
+    const url = `https://openapi.programming-hero.com/api/category/${id}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log(data.plants);
+}
+
 loadAllCategories();
 loadAllPlants();
