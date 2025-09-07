@@ -1,165 +1,26 @@
-## WELCOME TO ( সহজ সরল সিম্পল ) ASSIGNMENT-006
-
-### 📅 Deadline For 60 marks: 9th September, 2025 (11:59 pm ⏱️)
-
-### 📅 Deadline For 50 marks : 13th September , 2025 (6:00 pm⏱️)
-
-### 📅 Deadline For 30 marks: Any time after 13the September , 2025 (6:01 pm⏱️).
-
----
-# Green Earth
-
-
-## Private Repository: https://classroom.github.com/a/nVZrg5R9
-
-
----
-🌴 API Endpoints
----
-1. Get 🌴All Plants
-```bash
-https://openapi.programming-hero.com/api/plants
-```
-
-2. Get 🌴All categories <br/>
-```bash
-https://openapi.programming-hero.com/api/categories
-```
-
-
-3. Get 🌴plants by categories <br/>
-```bash
-https://openapi.programming-hero.com/api/category/${id}
-```
-
-```bash
-https://openapi.programming-hero.com/api/category/1
-```
-
-4. Get 🌴Plants Detail <br/>
-
-```bash
-https://openapi.programming-hero.com/api/plant/${id}
-```
-
-```bash
-https://openapi.programming-hero.com/api/plant/1
-```
----
-
-
-
-
-## ✅ Main Requirements 
-
-#### 1) Navbar
-
-- Website **logo/name** on the **left**  
-- **Menu items** in the **center** 
-- **Plant a Tree button** on the **right** 
-
-#### 2) Banner 
-- A **background image**  
-- A **title** and **subtitle**  
-- A **centered button**  
-
-#### 3) About Campaign
-- **Section heading**  
-- **Image on the left**, **text on the right**  
-
-#### 4) Our Impact Section 
-- Show **3 cards** with campaign **statistics**  
-
-#### 5) Plant a Tree Today Section & Footer
-- **Form**: Name, Email, Number of Trees  
-- **Footer** with copyright info 
-
-#### 6) Responsiveness 
-- Website must be **mobile responsive**  
-
----
-#### 7) Create a README file to answer the following question-
-
-
 #### 1) What is the difference between var, let, and const?
+Ans:
+1. var is function-scoped variable. On the other hand, let and const are block-scoped variable.
+2. Value of var can be redeclared and reassigned. Value of let can be reassigned but can't be redeclared. Value of const can't be redeclared and reassigned.
 
-#### 2) What is the difference between map(), forEach(), and filter()? 
+#### 2) What is the difference between map(), forEach(), and filter()?
+Ans: **map():** `map()` transforms every element in an array. It returns a new array with the transformed values. The original array is not modified.
+
+**forEach():** `forEach()` executes a provided function for each element in an array. It doesn't create new array.
+
+**filter():** `filter()` creates new array containing only those elements from the original array that satisfy a provided condition. The original array is not modified.
 
 #### 3) What are arrow functions in ES6?
+Ans: In ES6, arrow functions are a concise way to write anonymous functions.They offer a shorter syntax command compared to traditional function expressions.
 
 #### 4) How does destructuring assignment work in ES6?
+Ans: In ES6, destructuring is a concise way to extract values from objects and arrays and assign them to variables. In essence, it unpacks values from data structures into distinct variables. It makes code cleaner to understand.
 
 #### 5) Explain template literals in ES6. How are they different from string concatenation?
+Ans: In ES6, template literals are a way to create strings that can embed expressions. They are enclosed with backticks instead of single quotes or double quotes.
 
-## ⚙️ Functionalities 
-
-1) Category Loading 
-Load Tree Categories dynamically on the left side.
-
-2) Category Click → Tree Data 
-On clicking a category: load trees of that category.
-
-Display in a 3-column card layout.
-
-3) Card Contents 
- Each card includes:
-
-        - Image
-
-        -  Name
-
-        - Short description
-
-        - Category
-
-        - Price
-
-        - Add to Cart button
-
-4) Modal on Card Click 
-Clicking a tree name on a card opens a modal with full tree details.
-
-
-##  🧪 Challenges 
-
-
-    1) Add to Cart 
-    Clicking Add to Cart: - Adds the tree to Cart List
-                          - Shows tree name 
-
-    2) Total Calculation 
-    Calculate total price of trees in cart.
-
-    3) Remove from Cart 
-    Clicking ❌ removes tree and deducts price from total.
-
-    4) Loading Spinner
-    Show spinner while data is loading.
-
-    5) Active Button State 
-    Highlight active category button when selected.
-
-
-
-🧰 Technology Stack:
-        
-        HTML
-
-        CSS (Vanilla / Tailwind / DaisyUI)
-
-        JavaScript (Vanilla only, no frameworks)
-
-📌 Rules
-✅ At least 5 meaningful commits
-
-❌ No dummy text or Lorem Ipsum — must use relevant content
-
-
-
-
-
-## 🔗 Submission
-- **Live Link :** YOUR_DEPLOYED_URL_HERE  
-- **GitHub Private Repository:** YOUR_REPO_URL_HERE  
-
----
+Here is how they differ from string concatenation:
+1. Template literals allow to embed any JS expressions inside the `${}` placeholders, not just variables.
+2. Template literals make the code more readable, especially when dealing with complex strings that include variables.
+3. Template literals make it easy to create multiline strings.
+4. Template literals reduce the risk of errors caused by forgetting to include a `+` operator.
