@@ -1,5 +1,6 @@
 const plantCards = document.getElementById("plant-cards");
 const loader = document.getElementById("loader");
+const cartContainer = document.getElementById("cart-container");
 let cartList = [];
 
 const manageLoader = (loadingStatus) => {
@@ -149,7 +150,20 @@ const addToCart = (e) => {
             cartList.push(cartData);
         }
 
-        console.log(cartList);
+        cartContainer.innerHTML = "";
+        cartList.forEach(cart => {
+            cartContainer.innerHTML += `
+                <div class="bg-[#f0fdf4] p-3 rounded-lg flex justify-between items-center gap-4">
+                    <div>
+                        <h5 class="text-lg font-semibold">${cart.plantName}</h5>
+                        <p class="text-[#889396]">৳${cart.plantPrice} x ${cart.quantity}</p>
+                    </div>
+                    <div class="cursor-pointer">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+            `;
+        });
     }
 }
 
