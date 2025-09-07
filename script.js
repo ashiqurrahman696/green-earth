@@ -1,5 +1,6 @@
 const plantCards = document.getElementById("plant-cards");
 const loader = document.getElementById("loader");
+let cartList = [];
 
 const manageLoader = (loadingStatus) => {
     if(loadingStatus){
@@ -127,6 +128,14 @@ const showPlantDetail = (plant) => {
         <p><strong>Price:</strong> ৳${plant.price}</p>
         <p><strong>Description:</strong> ${plant.description}</p>
     `;
+}
+
+plantCards.addEventListener('click', (e) => addToCart(e));
+
+const addToCart = (e) => {
+    if(e.target.innerText == "Add to Cart"){
+        alert("Cart button clicked");
+    }
 }
 
 loadAllCategories();
