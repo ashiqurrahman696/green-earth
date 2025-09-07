@@ -134,7 +134,16 @@ plantCards.addEventListener('click', (e) => addToCart(e));
 
 const addToCart = (e) => {
     if(e.target.innerText == "Add to Cart"){
-        alert("Cart button clicked");
+        const name = e.target.parentNode.parentNode.children[1].children[0].innerText;
+        const price = e.target.parentNode.parentNode.children[1].children[2].children[1].innerText.slice(1);
+        const cartData = {
+            plantName: name,
+            plantPrice: Number(price),
+            quantity: 1
+        };
+
+        cartList.push(cartData);
+        console.log(cartList);
     }
 }
 
