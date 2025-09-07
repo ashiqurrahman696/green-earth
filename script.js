@@ -137,6 +137,8 @@ const addToCart = (e) => {
     if(e.target.innerText == "Add to Cart"){
         const name = e.target.parentNode.parentNode.children[1].children[0].innerText;
         const price = e.target.parentNode.parentNode.children[1].children[2].children[1].innerText.slice(1);
+        const totalPriceEl = document.getElementById("total-price");
+        let totalPrice = 0;
         const cartData = {
             plantName: name,
             plantPrice: Number(price),
@@ -163,7 +165,9 @@ const addToCart = (e) => {
                     </div>
                 </div>
             `;
+            totalPrice += cart.plantPrice * cart.quantity;
         });
+        totalPriceEl.innerText = totalPrice;
     }
 }
 
