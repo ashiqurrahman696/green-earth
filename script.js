@@ -1,4 +1,16 @@
-const plantsContainer = document.getElementById("plants-container");
+const plantCards = document.getElementById("plant-cards");
+const loader = document.getElementById("loader");
+
+const manageLoader = (loadingStatus) => {
+    if(loadingStatus){
+        loader.classList.remove("hidden");
+        plantCards.classList.add("hidden");
+    }
+    else{
+        loader.classList.add("hidden");
+        plantCards.classList.remove("hidden");
+    }
+}
 
 const loadAllCategories = async() => {
     const url = "https://openapi.programming-hero.com/api/categories";
@@ -17,6 +29,7 @@ const showAllCategories = (categories) => {
 }
 
 const loadAllPlants = async() => {
+    manageLoader(true);
     const url = "https://openapi.programming-hero.com/api/plants";
     const res = await fetch(url);
     const data = await res.json();
@@ -27,9 +40,9 @@ const showAllPlants = (plants) => {
     removeActive();
     const allTreeBtn = document.getElementById("tree-all");
     allTreeBtn.classList.add("bg-[#15803d]", "text-white");
-    plantsContainer.innerHTML = "";
+    plantCards.innerHTML = "";
     plants.forEach(plant => {
-        plantsContainer.innerHTML += `
+        plantCards.innerHTML += `
             <div class="card bg-base-100 w-full shadow-sm">
                 <figure class="px-4 pt-4">
                     <img src="${plant.image}" alt="${plant.name}"
@@ -49,6 +62,7 @@ const showAllPlants = (plants) => {
             </div>
         `;
     });
+    manageLoader(false);
 }
 
 const removeActive = () => {
@@ -59,6 +73,7 @@ const removeActive = () => {
 }
 
 const loadPlantsByCategory = async(id) => {
+    manageLoader(true);
     const url = `https://openapi.programming-hero.com/api/category/${id}`;
     const res = await fetch(url);
     const data = await res.json();
@@ -69,9 +84,9 @@ const showPlantsByCategory = (plants, id) => {
     removeActive();
     const clickedCategory = document.getElementById(`tree-${id}`);
     clickedCategory.classList.add("bg-[#15803d]", "text-white");
-    plantsContainer.innerHTML = "";
+    plantCards.innerHTML = "";
     plants.forEach(plant => {
-        plantsContainer.innerHTML += `
+        plantCards.innerHTML += `
             <div class="card bg-base-100 w-full shadow-sm">
                 <figure class="px-4 pt-4">
                     <img src="${plant.image}" alt="${plant.name}"
@@ -91,6 +106,7 @@ const showPlantsByCategory = (plants, id) => {
             </div>
         `;
     });
+    manageLoader(false);
 }
 
 const loadPlantDetail = async(id) => {
