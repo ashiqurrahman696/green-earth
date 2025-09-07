@@ -24,6 +24,7 @@ const loadAllPlants = async() => {
 }
 
 const showAllPlants = (plants) => {
+    removeActive();
     const allTreeBtn = document.getElementById("tree-all");
     allTreeBtn.classList.add("bg-[#15803d]", "text-white");
     plantsContainer.innerHTML = "";
@@ -50,14 +51,24 @@ const showAllPlants = (plants) => {
     });
 }
 
+const removeActive = () => {
+    const allCategories = document.querySelectorAll("#category-list li");
+    allCategories.forEach(category => {
+        category.classList.remove("bg-[#15803d]", "text-white");
+    });
+}
+
 const loadPlantsByCategory = async(id) => {
     const url = `https://openapi.programming-hero.com/api/category/${id}`;
     const res = await fetch(url);
     const data = await res.json();
-    showPlantsByCategory(data.plants);
+    showPlantsByCategory(data.plants, id);
 }
 
-const showPlantsByCategory = (plants) => {
+const showPlantsByCategory = (plants, id) => {
+    removeActive();
+    const clickedCategory = document.getElementById(`tree-${id}`);
+    clickedCategory.classList.add("bg-[#15803d]", "text-white");
     plantsContainer.innerHTML = "";
     plants.forEach(plant => {
         plantsContainer.innerHTML += `
